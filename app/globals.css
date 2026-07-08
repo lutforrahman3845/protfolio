@@ -18,6 +18,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-fraunces: var(--font-fraunces);
+  --font-poppins: var(--font-poppins);
+  --font-mono: var(--font-mono);
 }
 
 body {
@@ -26,3 +28,57 @@ body {
   font-family: var(--font-fraunces), serif;
 }
 
+/* Subtle grid backdrop used by the hero section */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+}
+
+/* Shimmer sweep for the primary CTA button */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Blinking caret for the mono status line */
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ping,
+  [style*="caret-blink"] {
+    animation: none !important;
+  }
+}
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background:#636363;
+    border-radius: 8px;
+  }
+
+  .custom-scrollbar.scroll-top::-webkit-scrollbar-thumb {
+    background: #636363;
+    border-radius: 8px;
+  }
+
+  .custom-scrollbar.scroll-bottom::-webkit-scrollbar-thumb {
+    background: #636363;
+    border-radius: 8px;
+  }
