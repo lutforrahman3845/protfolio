@@ -72,11 +72,11 @@ function TechIcon({ slug, label }: { slug: IconName; label: string }) {
 
 export function StackSection() {
   return (
-    <section className="w-full py-10 px-5 sm:px-6 bg-foreground/5 relative overflow-hidden">
+    <section id="stack" className="w-full py-10 px-5 sm:px-6 bg-foreground/5 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-2 mb-10 sm:mb-16 text-foreground/70 uppercase tracking-widest text-xl font-semibold">
-          <p className="text-5xl">*</p>
-          <p className="pb-2">MY STACK</p>
+          <span className="text-5xl" aria-hidden="true">*</span>
+          <h2 className="pb-2">My stack</h2>
         </div>
 
         <div className="flex flex-col space-y-6">

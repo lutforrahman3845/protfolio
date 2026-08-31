@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -7,12 +7,13 @@ export function HeroSection() {
 
         {/* Meta line — framed as a source comment, in the engineer's utility face */}
         <div className="flex items-center gap-3 mb-8">
-          <Avatar className="size-9 ring-1 ring-foreground/10">
-            <AvatarImage src="/me.png" alt="Lutfor Rahman" className="object-cover" />
-            <AvatarFallback className="bg-foreground/10 text-foreground/70 text-xs font-mono">
-              LR
-            </AvatarFallback>
-          </Avatar>
+          <Image
+            src="/me.png"
+            alt="Lutfor Rahman"
+            width={36}
+            height={36}
+            className="size-9 rounded-full object-cover ring-1 ring-foreground/10"
+          />
           <p className="font-mono text-xs sm:text-sm text-foreground/45 font-semibold tracking-tight">
             Lutfor Rahman — Software Engineer
             <span

@@ -9,9 +9,17 @@ import {
 } from "@/components/brand-icons";
 
 export const metadata: Metadata = {
-  title: "Contact — Lutfor Rahman",
+  title: "Contact",
   description:
     "Tell me about your project — timeline, scope, and what success looks like. Available for freelance and full-time work, remote worldwide.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    type: "website",
+    url: "/contact",
+    title: "Contact Lutfor Rahman — Full-Stack Software Engineer",
+    description:
+      "Tell me about your project — timeline, scope, and what success looks like. Available for freelance and full-time work, remote worldwide.",
+  },
 };
 
 const SOCIALS = [
