@@ -56,9 +56,8 @@ const STACK: { category: string; items: StackItem[] }[] = [
   },
 ];
 
-/* Full-color logo that swaps its variant to stay visible in light & dark themes.
-   Toggling happens on these wrapper spans — StackIcon sets an inline
-   display style that would override Tailwind's `hidden` class otherwise. */
+/* Full-color logo, in the variant drawn for light backgrounds — the only
+   background this site has. */
 function TechIcon({ slug, label }: { slug: IconName; label: string }) {
   return (
     <span
@@ -66,12 +65,7 @@ function TechIcon({ slug, label }: { slug: IconName; label: string }) {
       aria-hidden="true"
       title={label}
     >
-      <span className="w-full h-full dark:hidden">
-        <StackIcon name={slug} variant="light" className="w-full h-full" />
-      </span>
-      <span className="hidden w-full h-full dark:block">
-        <StackIcon name={slug} variant="dark" className="w-full h-full" />
-      </span>
+      <StackIcon name={slug} variant="light" className="w-full h-full" />
     </span>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { CtaSection } from "@/components/cta-section";
 import { Fraunces, Poppins, JetBrains_Mono } from "next/font/google";
 
 const fraunces = Fraunces({
@@ -32,11 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${fraunces.variable} ${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-fraunces custom-scrollbar">
-        <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+        {children}
+        <CtaSection />
       </body>
     </html>
   );
