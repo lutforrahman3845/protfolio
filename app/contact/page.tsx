@@ -88,7 +88,7 @@ export default function ContactPage() {
                     aria-label={name}
                     className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-foreground/15 text-foreground/70 transition-colors hover:bg-foreground hover:text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
                   >
-                    <Icon className="h-[18px] w-[18px]" />
+                    <Icon className="h-4.5 w-4.5" />
                   </a>
                 ))}
               </div>
