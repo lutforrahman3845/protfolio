@@ -3,10 +3,10 @@ import { ButtonLink } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
-    <section className="relative w-full min-h-[70vh] flex flex-col justify-center bg-grid px-5 sm:px-6 py-14 sm:py-16 overflow-hidden">
+    <section className="relative w-full min-h-[70vh] flex flex-col justify-center bg-grid px-5 sm:px-6 py-10 sm:py-12 overflow-hidden">
       <div className="max-w-6xl mx-auto w-full flex flex-col items-start text-left z-10">
 
-        {/* Meta line — framed as a source comment, in the engineer's utility face */}
+    
         <div className="flex items-center gap-3 mb-8">
           <Image
             src="/me.png"

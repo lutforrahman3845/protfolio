@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { CtaSection } from "@/components/cta-section";
+import { Navbar } from "@/components/navbar";
 import { SITE } from "@/lib/site";
 import { jsonLdScript, siteJsonLd } from "@/lib/structured-data";
 import { Fraunces, Poppins, JetBrains_Mono } from "next/font/google";
@@ -77,6 +78,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-fraunces custom-scrollbar">
+        <Navbar />
         {children}
         <CtaSection />
         <script

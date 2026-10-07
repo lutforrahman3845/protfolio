@@ -28,6 +28,11 @@
   --font-mono: var(--font-mono);
 }
 
+/* Keep anchored sections clear of the sticky header. */
+html {
+  scroll-padding-top: 5rem;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -40,6 +45,18 @@ body {
     linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
   background-size: 3rem 3rem;
+}
+
+/* The phone index settling into place when it opens */
+@keyframes index-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Blinking caret for the mono status line */

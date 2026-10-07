@@ -7,17 +7,12 @@ import { ProjectLinks } from "@/components/projects/project-links";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PROJECTS, type Project } from "@/lib/projects";
 
-/* The work as a stack of tabbed sheets, each in its project's own colour.
-   Sheets behind the front one peek out by PEEK px; pulling a tab brings
-   that sheet forward. Tabs and sheets share one stacking context, so a
-   tab sits on its own sheet's top edge at the same depth. */
 const PEEK = 16;
 const TAB_H = 44;
 const TOP = (PROJECTS.length - 1) * PEEK + TAB_H;
 
 function depthOf(index: number, active: number) {
   if (index === active) return 0;
-  // Behind the front sheet, keep the list order: earlier projects sit nearer.
   const behind = PROJECTS.map((_, i) => i).filter((i) => i !== active);
   return behind.indexOf(index) + 1;
 }
@@ -50,11 +45,11 @@ function Sheet({
       }
     >
       <div
-        className={`grid h-full transition-opacity duration-300 motion-reduce:transition-none md:min-h-[30rem] md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] ${
+        className={`grid h-full transition-opacity duration-300 motion-reduce:transition-none md:min-h-120 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] ${
           front ? "opacity-100 delay-150" : "opacity-0"
         }`}
       >
-        <div className="order-2 flex flex-col p-6 sm:p-9 md:order-none">
+        <div className="order-2 flex flex-col p-6 sm:p-9 md:order-0">
           <p className="font-poppins text-sm text-foreground/70">
             {project.kind}, {project.year}
           </p>
@@ -76,7 +71,7 @@ function Sheet({
           href={`/projects/${project.slug}`}
           tabIndex={-1}
           aria-hidden="true"
-          className="group relative order-1 block aspect-4/3 md:order-none md:aspect-auto"
+          className="group relative order-1 block aspect-4/3 md:order-0 md:aspect-auto"
         >
           <Image
             src={project.cover.image}
