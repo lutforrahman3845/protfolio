@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# lutforrahman.dev
 
-## Getting Started
+Personal portfolio of Lutfor Rahman — full-stack software engineer. Built with
+Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS v4.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local   # then fill in GMAIL_APP_PASSWORD
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script          | What it does              |
+| --------------- | ------------------------- |
+| `npm run dev`   | Development server        |
+| `npm run build` | Production build          |
+| `npm run start` | Serve the production build |
+| `npm run lint`  | ESLint                    |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment
 
-## Learn More
+The contact form sends mail through Gmail SMTP (Nodemailer) from a Server
+Action in `app/contact/actions.ts`.
 
-To learn more about Next.js, take a look at the following resources:
+| Variable             | Value                                                                 |
+| -------------------- | --------------------------------------------------------------------- |
+| `GMAIL_USER`         | The Gmail address that sends the message                              |
+| `GMAIL_APP_PASSWORD` | A 16-character [App Password](https://myaccount.google.com/apppasswords) (needs 2-Step Verification) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Set the same variables in your host's dashboard when deploying.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project layout
 
-## Deploy on Vercel
+```
+app/                 routes, metadata, robots.ts, sitemap.ts, globals.css (design tokens)
+  contact/           contact page + Server Action that sends the email
+components/
+  Home/              home-page sections (hero, stack)
+  contact/           contact form
+  ui/                shared primitives: Button, Card, SectionHeading
+lib/
+  site.ts            single source of truth: domain, name, email, profiles, skills
+  structured-data.ts JSON-LD (Person + WebSite)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Design system
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ink on paper: two colors (`background` #EEEDE8, `foreground` #171717) plus a
+`surface` for cards, with every grey expressed as `foreground` at an opacity.
+Fraunces for display, Poppins for UI and reading text, JetBrains Mono for
+metadata. Tokens live in `app/globals.css`; reuse the primitives in
+`components/ui/` instead of copying class strings.

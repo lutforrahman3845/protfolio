@@ -3,11 +3,13 @@
 import { useActionState } from "react";
 import { Loader2, Mail, User } from "lucide-react";
 import { sendContactMessage, type ContactState } from "@/app/contact/actions";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const initialState: ContactState = { status: "idle", message: "" };
 
 const fieldClasses =
-  "w-full rounded-lg border border-foreground/20 bg-white px-4 py-3.5 pr-11 text-foreground placeholder:text-foreground/35 outline-none transition-colors focus:border-foreground/60 focus-visible:ring-2 focus-visible:ring-foreground/15";
+  "w-full rounded-lg border border-foreground/20 bg-input px-4 py-3.5 pr-11 text-foreground placeholder:text-foreground/35 outline-none transition-colors focus:border-foreground/60 focus-visible:ring-2 focus-visible:ring-foreground/15";
 
 function Label({ htmlFor, children }: { htmlFor: string; children: string }) {
   return (
@@ -28,7 +30,7 @@ export function ContactForm() {
   const fields = state.fields;
 
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-surface p-6 sm:p-9">
+    <Card>
       <form action={formAction} className="font-poppins">
         {/* Honeypot — invisible to people, tempting to bots */}
         <div className="hidden" aria-hidden="true">
@@ -97,26 +99,22 @@ export function ContactForm() {
         </div>
 
         <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-4">
-          <button
-            type="submit"
-            disabled={pending}
-            className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground disabled:opacity-60 disabled:cursor-not-allowed"
-          >
+          <Button type="submit" disabled={pending}>
             {pending ? "Sending…" : "Send message"}
             {pending ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
               <Mail className="h-4 w-4" />
             )}
-          </button>
+          </Button>
 
           <p
             aria-live="polite"
             className={
               state.status === "error"
-                ? "text-sm text-red-700"
+                ? "text-sm text-danger"
                 : state.status === "success"
-                  ? "text-sm text-emerald-700"
+                  ? "text-sm text-success"
                   : "text-xs text-foreground/50"
             }
           >
@@ -124,6 +122,6 @@ export function ContactForm() {
           </p>
         </div>
       </form>
-    </div>
+    </Card>
   );
 }

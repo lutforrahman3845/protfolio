@@ -1,4 +1,5 @@
 import StackIcon, { type IconName } from "tech-stack-icons";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 type StackItem = { name: string; slug: IconName };
 
@@ -74,10 +75,7 @@ export function StackSection() {
   return (
     <section id="stack" className="w-full py-10 px-5 sm:px-6 bg-foreground/5 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-2 mb-10 sm:mb-16 text-foreground/70 uppercase tracking-widest text-xl font-semibold">
-          <span className="text-5xl" aria-hidden="true">*</span>
-          <h2 className="pb-2">My stack</h2>
-        </div>
+        <SectionHeading>My stack</SectionHeading>
 
         <div className="flex flex-col space-y-6">
           {STACK.map((group, i) => (

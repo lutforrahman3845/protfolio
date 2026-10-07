@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ButtonLink } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
@@ -40,12 +41,9 @@ export function HeroSection() {
 
         {/* CTAs */}
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 w-full sm:w-auto">
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3.5 text-base font-medium text-background bg-foreground rounded-xl hover:opacity-90 active:scale-[0.98] transition-all font-poppins"
-          >
+          <ButtonLink href="/contact" size="lg" className="w-full sm:w-auto">
             Let&apos;s work together
-          </a>
+          </ButtonLink>
 
           <a
             href="#projects"
@@ -63,8 +61,8 @@ export function HeroSection() {
           <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-2 border-t border-foreground/10 pt-4">
             <span className="inline-flex items-center gap-2">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75"></span>
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-live opacity-75"></span>
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-live"></span>
               </span>
               available for work
             </span>

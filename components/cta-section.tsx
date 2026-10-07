@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export function CtaSection() {
@@ -14,14 +15,14 @@ export function CtaSection() {
           Have a project in mind?
         </p>
 
-        <a
+        <Link
           href="/contact"
           className="mt-5 sm:mt-7 inline-block rounded-lg hover:opacity-70 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-foreground/40"
         >
           <h2 className="font-poppins font-bold uppercase tracking-tighter leading-[0.85] text-[clamp(2.75rem,15vw,11rem)] text-foreground">
             Let&apos;s work
           </h2>
-        </a>
+        </Link>
       </div>
     </section>
   );

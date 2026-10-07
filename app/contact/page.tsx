@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Globe, Mail, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/contact/contact-form";
+import { Card } from "@/components/ui/card";
+import { SITE } from "@/lib/site";
 import {
   FacebookIcon,
   GithubIcon,
@@ -64,17 +66,17 @@ export default function ContactPage() {
         </p>
 
         <div className="mt-3 sm:mt-5 grid gap-5 lg:grid-cols-[minmax(0,20rem)_1fr] items-start">
-          <aside className="rounded-2xl border border-foreground/10 bg-surface p-7 sm:p-8 flex flex-col gap-8">
+          <Card className="p-7 sm:p-8 flex flex-col gap-8">
             <Detail icon={<MapPin className="h-6 w-6" />} label="Based in">
               Dhaka, Bangladesh — working remote, worldwide.
             </Detail>
 
             <Detail icon={<Mail className="h-6 w-6" />} label="Email me">
               <a
-                href="mailto:lutforrahman.dev.bd@gmail.com"
+                href={`mailto:${SITE.email}`}
                 className="hover:text-foreground transition-colors break-all"
               >
-                lutforrahman.dev.bd@gmail.com
+                {SITE.email}
               </a>
             </Detail>
 
@@ -101,7 +103,7 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-          </aside>
+          </Card>
 
           <ContactForm />
         </div>
